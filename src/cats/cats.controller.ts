@@ -1,17 +1,14 @@
 import { Controller, Get, Post, Param, Body, Query, Render } from '@nestjs/common';
-import { CreateCatDto } from './dto/create-cat.dto';
+import { CreateCatDto } from './dto/create-cat.dto.js';
+import { CatsService } from "./cats.service";
 
-@Controller('cats')
+@Controller("cats")
 export class CatsController {
-  @Post('info')
-  async create(@Body() createCatDto: CreateCatDto): Promise<object> {
-    console.log("TCL: CatsController -> createCatDto", createCatDto); // 请求体参数
-    return createCatDto
-  }
+  constructor(private readonly catsService: CatsService) {}
 
-  @Get('info')
-  async query(@Query() query: CreateCatDto): Promise<object> {
-    console.log("TCL: CatsController -> query", query); // GET请求参数
-    return query
+  @Post()
+  async create(@Body() createCatDto: CreateCatDto) {
+    console.log(createCatDto);
+    return await this.catsService.create();
   }
 }
