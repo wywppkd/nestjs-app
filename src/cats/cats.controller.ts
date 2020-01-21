@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Body, Query } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body, Query, Render } from '@nestjs/common';
 import { CreateCatDto } from './dto/create-cat.dto';
 
 @Controller('cats')
