@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class CatsService {
-  create(){
-    return {code:200, msg:"ok"}
+  create() {
+    return { code: 200, msg: "ok" };
   }
 }
